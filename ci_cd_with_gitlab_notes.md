@@ -20,6 +20,10 @@
 # Gitlab pipleline config
 1. defined in ".gitlab-ci.yml"
 
+# Gitlab Variables - Protected and Masking
+1. Protected - not available across different branches
+2. Masking - this avoids password to be printed in logs
+
 ## JOB level Config
 1. image: base docker image to start the job with by gitlab runner
 2. stage: specify job is part of which stage
@@ -30,6 +34,9 @@
     1. Helps in reusing the same steps of job to be run for different environments like dev, stg. and prod.
     2. gitlab variables can have per environemnt values.
 
+### versioning release
+Specify varible APP_VERSION using auto increment pipeline id 
+Post build store APP_VERSION in version.txt file
 # Continous Integration
 Automate and safely push code to master/stag(pre pod) env. 
 
@@ -40,11 +47,7 @@ Automate and safely push code to master/stag(pre pod) env.
 
 # Continous Deployment versus Continous Delivery
 Automation where commit will lead to prod release is Continous deployment
-Automation where commit is propogated till stg./prepod env. and manual intervention is need for prod deployment. Use gitlab rules to conditional deploy to prod env.
-
-# Gitlab Variables - Protected and Masking
-1. Protected - not available across different branches
-2. Masking - this avoids password to be printed in logs
+Automation where commit is propogated till stg./prepod env. and manual intervention is need for prod deployment. Use "when: manual" along with enviroment: production to deploy to prod env.
 
 # Gitlab CI Pipeline - AWS Integration
 ## S3 access(host website, cp, sync files etc.)
@@ -54,4 +57,5 @@ Automation where commit is propogated till stg./prepod env. and manual intervent
     2. AWS_SECRET_ACCESS_KEY
     3. AWS_DEFAULT_REGION
 3. Use aws cli to use above credentials and talk to s3
+
 
