@@ -1,5 +1,6 @@
 # Reference
 1. https://www.youtube.com/watch?v=PGyhBwLyK2U
+2. https://gitlab.com/gitlab-course-public/freecodecamp-gitlab-ci/-/blob/main/docs/course-notes.md
 
 # Gitlab Infra for CI-CD 
 1. Gitlab infra for running a pipeline: gitlab server leveraging gitlab runner.
